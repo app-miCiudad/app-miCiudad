@@ -42,22 +42,20 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.val;
 
-import miCiudad.modules.miCiudad.types.Especificacion;
-
 
 @Entity
 @Table(
     schema="miCiudad",
     uniqueConstraints = {
-        @UniqueConstraint(name = "Barrio__lastName__UNQ", columnNames = {"LASTNAME"})
+        @UniqueConstraint(name = "Barrio__nombre__UNQ", columnNames = {"nombre"})
     }
 )
 @NamedQueries({
         @NamedQuery(
-                name = Barrio.NAMED_QUERY__FIND_BY_LAST_NAME_LIKE,
+                name = Barrio.NAMED_QUERY__FIND_BY_NOMBRE_LIKE,
                 query = "SELECT so " +
                         "FROM Barrio so " +
-                        "WHERE so.lastName LIKE :lastName"
+                        "WHERE so.nombre LIKE :nombre"
         )
 })
 @EntityListeners(IsisEntityListener.class)
@@ -68,7 +66,7 @@ import miCiudad.modules.miCiudad.types.Especificacion;
 @ToString(onlyExplicitlyIncluded = true)
 public class Barrio implements Comparable<Barrio> {
 
-    static final String NAMED_QUERY__FIND_BY_LAST_NAME_LIKE = "Barrio.findByLastNameLike";
+    static final String NAMED_QUERY__FIND_BY_NOMBRE_LIKE = "Barrio.findByNombreLike";
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -77,20 +75,14 @@ public class Barrio implements Comparable<Barrio> {
     @PropertyLayout(fieldSetId = "metadata", sequence = "1")
     private Long id;
 
-    @Version
-    @Column(name = "version", nullable = false)
-    @PropertyLayout(fieldSetId = "metadata", sequence = "999")
-    @Getter @Setter
-    private long version;
 
     public static Barrio withName(String name) {
         return withName(name, null);
     }
 
-    public static Barrio withName(String lastName, String firstName) {
+    public static Barrio withName(String nombre, String firstName) {
         val simpleObject = new Barrio();
-        simpleObject.setLastName(lastName);
-        simpleObject.setFirstName(firstName);
+        simpleObject.setNombre(nombre);
         return simpleObject;
     }
 
@@ -100,48 +92,40 @@ public class Barrio implements Comparable<Barrio> {
 
 
     public String title() {
-        return getLastName() + (getFirstName() != null ? ", " + getFirstName() : "");
+        return getNombre();
     }
 
     @Transient
-    @PropertyLayout(fieldSetId = "name", sequence = "1")
+    @PropertyLayout(fieldSetId = "name", sequence = "1", named = "Nombre Barrio")
     public String getName() {
-        return (getFirstName() != null ? getFirstName() + " ": "")  + getLastName();
+        return  getNombre();
     }
 
-    @LastName
-    @Column(length = LastName.MAX_LEN, nullable = false)
+    @Nombre
+    @Column(length = Nombre.MAX_LEN, nullable = false, name = "nombre")
     @Getter @Setter @ToString.Include
     @Property(hidden = Where.EVERYWHERE)
-    private String lastName;
+    private String nombre;
 
-    @FirstName
-    @Column(length = FirstName.MAX_LEN, nullable = true)
-    @Getter @Setter @ToString.Include
-    @Property(hidden = Where.EVERYWHERE)
-    private String firstName;
+
 
 
     @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @ActionLayout(associateWith = "name")
     public Barrio updateName(
-            @LastName final String lastName,
-            @FirstName final String firstName) {
-        setLastName(lastName);
-        setFirstName(firstName);
+            @Nombre final String nombre) {
+        setNombre(nombre);
         return this;
     }
     public String default0UpdateName() {
-        return getLastName();
+        return getNombre();
     }
-    public String default1UpdateName() {
-        return getFirstName();
-    }
+
 
 
     @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
     @ActionLayout(
-            associateWith = "lastName", position = ActionLayout.Position.PANEL,
+            associateWith = "nombre", position = ActionLayout.Position.PANEL,
             describedAs = "Deletes this object from the persistent datastore")
     public void delete() {
         final String title = titleService.titleOf(this);
@@ -152,7 +136,7 @@ public class Barrio implements Comparable<Barrio> {
 
 
     private final static Comparator<Barrio> comparator =
-            Comparator.comparing(Barrio::getLastName);
+            Comparator.comparing(Barrio::getNombre);
 
     @Override
     public int compareTo(final Barrio other) {

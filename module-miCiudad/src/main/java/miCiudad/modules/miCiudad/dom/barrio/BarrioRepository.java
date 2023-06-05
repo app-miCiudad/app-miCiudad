@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BarrioRepository extends JpaRepository<Barrio, Long> {
 
-    List<Barrio> findByLastNameContaining(final String name);
+    List<Barrio> findByNombreContaining(final String name);
 
-    Barrio findByLastName(final String name);
+    Barrio findByNombre(final String name);
 
 }

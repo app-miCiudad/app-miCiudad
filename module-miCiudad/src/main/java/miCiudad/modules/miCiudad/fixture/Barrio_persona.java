@@ -36,7 +36,7 @@ implements PersonaWithBuilderScript<BarrioBuilder>, PersonaWithFinder<Barrio> {
     @Override
     public Barrio findUsing(final ServiceRegistry serviceRegistry) {
         Barrios barrios = serviceRegistry.lookupService(Barrios.class).orElse(null);
-        return barrios.findByLastNameExact(name);
+        return barrios.findByNombreExact(name);
     }
 
     public static class PersistAll

@@ -20,8 +20,7 @@ import org.apache.isis.persistence.jpa.applib.services.JpaSupportService;
 
 import lombok.RequiredArgsConstructor;
 
-import miCiudad.modules.miCiudad.types.FirstName;
-import miCiudad.modules.miCiudad.types.LastName;
+import miCiudad.modules.miCiudad.types.Nombre;
 
 @DomainService(
         nature = NatureOfService.VIEW,
@@ -38,33 +37,32 @@ public class Barrios {
 
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
     public Barrio create(
-            @LastName final String lastName,
-            @FirstName final String firstName) {
-        return repositoryService.persist(Barrio.withName(lastName, firstName));
+            @Nombre final String nombre) {
+        return repositoryService.persist(Barrio.withName(nombre));
     }
 
 
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
-    public List<Barrio> findByLastNameLike(
-            @LastName final String lastName) {
+    public List<Barrio> findByNombreLike(
+            @Nombre final String nombre) {
         return repositoryService.allMatches(
-                Query.named(Barrio.class, Barrio.NAMED_QUERY__FIND_BY_LAST_NAME_LIKE)
-                     .withParameter("lastName", "%" + lastName + "%"));
+                Query.named(Barrio.class, Barrio.NAMED_QUERY__FIND_BY_NOMBRE_LIKE)
+                     .withParameter("nombre", "%" + nombre + "%"));
     }
 
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-    public List<Barrio> findByLastName(
-            @LastName final String lastName
+    public List<Barrio> findByNombre(
+            @Nombre final String nombre
             ) {
-        return barrioRepository.findByLastNameContaining(lastName);
+        return barrioRepository.findByNombreContaining(nombre);
     }
 
 
     @Programmatic
-    public Barrio findByLastNameExact(final String lastName) {
-        return barrioRepository.findByLastName(lastName);
+    public Barrio findByNombreExact(final String nombre) {
+        return barrioRepository.findByNombre(nombre);
     }
 
 
@@ -83,7 +81,7 @@ public class Barrios {
         jpaSupportService.getEntityManager(Barrio.class)
             .ifSuccess(entityManager -> {
                 final TypedQuery<Barrio> q = entityManager.createQuery(
-                        "SELECT p FROM Barrio p ORDER BY p.lastName",
+                        "SELECT p FROM Barrio p ORDER BY p.nombre",
                         Barrio.class)
                     .setMaxResults(1);
                 q.getResultList();

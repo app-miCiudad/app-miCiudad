@@ -21,7 +21,7 @@ public class BarrioBuilder extends BuilderScriptWithResult<Barrio> {
 
         checkParam("name", ec, String.class);
 
-        return wrap(barrios).create(name, null);
+        return wrap(barrios).create(name);
     }
 
     // -- DEPENDENCIES

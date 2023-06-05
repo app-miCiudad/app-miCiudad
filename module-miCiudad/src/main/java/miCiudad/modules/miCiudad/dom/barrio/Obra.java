@@ -70,8 +70,8 @@ public class Obra implements Comparable<Obra> {
     @Getter @Setter
     private Barrio barrio;
 
-    @FirstName
-    @Column(name = "titulo", length = FirstName.MAX_LEN, nullable = false)
+    @Titulo
+    @Column(name = "titulo", length = Nombre.MAX_LEN, nullable = false)
     @Getter @Setter
     @PropertyLayout(fieldSetId = "titulo", sequence = "2")
     private String titulo;

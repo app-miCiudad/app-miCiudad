@@ -5,8 +5,8 @@
             <mb3:named>Barrios</mb3:named>
             <mb3:section>
                 <mb3:serviceAction objectType="miCiudad.Barrios" id="create"/>
-                <mb3:serviceAction objectType="miCiudad.Barrios" id="findByLastName"/>
-                <mb3:serviceAction objectType="miCiudad.Barrios" id="findByLastNameLike"/>
+                <mb3:serviceAction objectType="miCiudad.Barrios" id="findByNombre"/>
+                <mb3:serviceAction objectType="miCiudad.Barrios" id="findByNombreLike"/>
                 <mb3:serviceAction objectType="miCiudad.Barrios" id="listAll"/>
             </mb3:section>
         </mb3:menu>

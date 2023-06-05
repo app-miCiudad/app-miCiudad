@@ -1,0 +1,37 @@
+= MiCiudad
+:toc:
+:toc-placement!:
+
+This is the MiCiudad app, implemented as a simple link:http://isis.apache.org[Apache Isis] application.
+
+== Quick start
+
+* install prereqs:
+
+** Java 11 LTS (eg link:https://adoptopenjdk.net/[Adopt OpenJDK] distribution)
+** Maven 3.6 or later (http://maven.apache.org/download.cgi[download])
+
+* Build using Maven:
++
+[source,bash]
+----
+mvn clean install
+----
+
+* Run using Maven:
++
+[source,bash]
+----
+mvn -pl webapp spring-boot:run
+----
+
+* Browse to http://localhost:8080.
+
+* Login to using:
+
+** username: `sven`
+** password: `pass`
+
++
+The app runs with H2 running in-memory, with sample data set up using fixture scripts.
+

@@ -19,7 +19,7 @@ public class Barrio_addObra {
     private final Barrio barrio;
 
     public Barrio act(
-            @PetName final String titulo, @Especificacion final String esp,
+            @Titulo final String titulo, @Especificacion final String esp,
             @Fecha final DateTime fechaInicio, @Fecha final DateTime fechaFinal,
             @Presupuesto double presupuesto, @Empresa final String empresa
             ) {
