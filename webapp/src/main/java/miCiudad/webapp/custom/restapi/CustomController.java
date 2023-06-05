@@ -17,8 +17,8 @@ import org.apache.isis.applib.services.xactn.TransactionalProcessor;
 
 import lombok.RequiredArgsConstructor;
 
-import miCiudad.modules.obras.dom.barrio.Barrio;
-import miCiudad.modules.obras.dom.barrio.Barrios;
+import miCiudad.modules.miCiudad.dom.barrio.Barrio;
+import miCiudad.modules.miCiudad.dom.barrio.Barrios;
 
 @RestController
 @RequiredArgsConstructor(onConstructor_ = {@Inject})

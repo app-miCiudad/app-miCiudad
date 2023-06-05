@@ -9,8 +9,8 @@ import org.apache.isis.applib.annotation.DomainObjectLayout;
 import org.apache.isis.applib.annotation.HomePage;
 import org.apache.isis.applib.annotation.Nature;
 
-import miCiudad.modules.obras.dom.barrio.Barrio;
-import miCiudad.modules.obras.dom.barrio.Barrios;
+import miCiudad.modules.miCiudad.dom.barrio.Barrio;
+import miCiudad.modules.miCiudad.dom.barrio.Barrios;
 
 @DomainObject(
         nature = Nature.VIEW_MODEL,
@@ -21,10 +21,10 @@ import miCiudad.modules.obras.dom.barrio.Barrios;
 public class HomePageViewModel {
 
     public String title() {
-        return getObjects().size() + " objects";
+        return getBarrios().size() + " Barrios";
     }
 
-    public List<Barrio> getObjects() {
+    public List<Barrio> getBarrios() {
         return barrios.listAll();
     }
 

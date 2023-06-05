@@ -5,7 +5,7 @@ import javax.inject.Inject;
 import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScript;
 import org.apache.isis.testing.fixtures.applib.modules.ModuleWithFixturesService;
 
-import miCiudad.modules.obras.fixture.Barrio_persona;
+import miCiudad.modules.miCiudad.fixture.Barrio_persona;
 
 public class miCiudadDemo extends FixtureScript {
 

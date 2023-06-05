@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.apache.isis.applib.services.health.Health;
 import org.apache.isis.applib.services.health.HealthCheckService;
 
-import miCiudad.modules.obras.dom.barrio.Barrios;
+import miCiudad.modules.miCiudad.dom.barrio.Barrios;
 
 @Service
 @Named("miCiudad.HealthCheckServiceImpl")

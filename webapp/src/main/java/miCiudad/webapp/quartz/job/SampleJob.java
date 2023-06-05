@@ -20,8 +20,8 @@ import org.apache.isis.applib.services.xactn.TransactionalProcessor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
-import miCiudad.modules.obras.dom.barrio.Barrio;
-import miCiudad.modules.obras.dom.barrio.Barrios;
+import miCiudad.modules.miCiudad.dom.barrio.Barrio;
+import miCiudad.modules.miCiudad.dom.barrio.Barrios;
 
 @Component
 @RequiredArgsConstructor(onConstructor_ = {@Inject})

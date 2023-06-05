@@ -58,7 +58,7 @@
 
         <dependency>
             <groupId>org.apache.isis.tutorials</groupId>
-            <artifactId>miCiudad-module-obras</artifactId>
+            <artifactId>miCiudad-module-miCiudad</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
@@ -116,7 +116,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.isis.tutorials</groupId>
-            <artifactId>miCiudad-module-obras</artifactId>
+            <artifactId>miCiudad-module-miCiudad</artifactId>
         </dependency>
     </dependencies>
 

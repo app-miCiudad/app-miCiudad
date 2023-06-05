@@ -4,7 +4,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
-import miCiudad.modules.obras.ObrasModule;
+import miCiudad.modules.miCiudad.ObrasModule;
 
 @Configuration
 @Import(ObrasModule.class)
