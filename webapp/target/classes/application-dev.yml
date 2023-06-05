@@ -1,0 +1,4 @@
+isis:
+  testing:
+    fixtures:
+      initial-script: miCiudad.webapp.application.fixture.scenarios.miCiudadDemo
