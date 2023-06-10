@@ -35,4 +35,27 @@ mvn -pl webapp spring-boot:run
 +
 The app runs with H2 running in-memory, with sample data set up using fixture scripts.
 
-= Spring 1
+= SPRING 1 - 15 Mayo / 27 Mayo
+
+Creamos la primera entidad ‘Barrio’, con sus atributos correspondientes.
+
+Atributos: 
+Nombre barrio
+Obras
+
+Modificamos la base de datos para que figure como ‘miCiudad’
+
+= SPRING 2 - 29 mayo / 9 Junio
+
+Creamos la segunda entidad ‘Obra’, con sus respectivos atributos:
+
+Atributos:
+	Nombre Obra (Id)
+Fecha inicio
+Fecha final
+Estado
+Presupuesto
+Barrio	
+
+ y relacionado a ‘Barrio’ a traves del id_obra.
+
