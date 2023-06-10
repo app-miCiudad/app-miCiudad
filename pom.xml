@@ -29,7 +29,7 @@
     <dependencyManagement>
         <dependencies>
 
-            <!-- this project's own modules -->
+            <!-- this project's own modules soy erick -->
             <dependency>
                 <groupId>org.apache.isis.tutorials</groupId>
                 <artifactId>miCiudad-module-miCiudad</artifactId>
