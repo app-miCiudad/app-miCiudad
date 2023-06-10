@@ -120,8 +120,7 @@ public class Barrio implements Comparable<Barrio> {
     public String default0UpdateName() {
         return getNombre();
     }
-
-
+    
 
     @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
     @ActionLayout(

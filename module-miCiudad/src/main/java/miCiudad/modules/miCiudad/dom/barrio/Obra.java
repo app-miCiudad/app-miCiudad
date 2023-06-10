@@ -27,6 +27,8 @@ import lombok.ToString;
 
 import org.joda.time.DateTime;
 
+import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
+
 
 @Entity
 @Table(
@@ -120,4 +122,20 @@ public class Obra implements Comparable<Obra> {
         return comparator.compare(this, other);
     }
 
+
+
+    ///// Actualizar datos/////
+    
+    @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
+    @ActionLayout(associateWith = "titulo", promptStyle = PromptStyle.INLINE)
+    public Obra updateTitulo(
+        @Titulo final String titulo) {
+        setTitulo(titulo);
+        return this;
+    }
+    public String default0UpdateTitulo() {
+        return getTitulo();
+    }
+
+    ///// Fin Actualizar datos///
 }
