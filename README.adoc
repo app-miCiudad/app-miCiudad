@@ -35,3 +35,4 @@ mvn -pl webapp spring-boot:run
 +
 The app runs with H2 running in-memory, with sample data set up using fixture scripts.
 
+= Spring 1
