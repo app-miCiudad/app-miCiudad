@@ -10,6 +10,10 @@
         <module name="miCiudad-webapp" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="petclinic" target="1.5" />
+      <module name="petclinic-webapp" target="1.6" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
