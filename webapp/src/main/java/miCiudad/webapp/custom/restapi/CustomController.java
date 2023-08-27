@@ -43,5 +43,4 @@ class CustomController {
                 () -> transactionalProcessor.callWithinCurrentTransactionElseCreateNew(callable))
                 .optionalElseFail(); // re-throws exception that has occurred, if any
     }
-
 }
