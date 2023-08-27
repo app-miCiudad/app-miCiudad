@@ -3,6 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+<!-- Hola esto es un cambio de prueba para develop -->
     <parent>
         <groupId>org.apache.isis.app</groupId>
         <artifactId>isis-app-starter-parent</artifactId>
