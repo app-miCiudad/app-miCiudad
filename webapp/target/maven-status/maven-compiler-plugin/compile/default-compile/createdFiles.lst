@@ -2,8 +2,8 @@ miCiudad/webapp/application/fixture/scenarios/miCiudadDemo.class
 miCiudad/webapp/AppManifest.class
 miCiudad/webapp/application/services/homepage/HomePageViewModel.class
 miCiudad/webapp/quartz/job/SampleJob.class
-miCiudad/webapp/quartz/QuartzModule.class
 miCiudad/webapp/application/ApplicationModule.class
+miCiudad/webapp/quartz/QuartzModule.class
 miCiudad/webapp/custom/restapi/CustomController.class
 miCiudad/webapp/application/services/health/HealthCheckServiceImpl.class
 miCiudad/webapp/MiCiudadApp.class

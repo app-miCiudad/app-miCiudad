@@ -1,7 +1,7 @@
 miCiudad/modules/miCiudad/dom/barrio/ObraRepository.class
 miCiudad/modules/miCiudad/dom/barrio/Obra.class
-miCiudad/modules/miCiudad/dom/barrio/Barrio.class
 miCiudad/modules/miCiudad/types/Nombre$Spec.class
+miCiudad/modules/miCiudad/dom/barrio/Barrio.class
 miCiudad/modules/miCiudad/ObrasModule$1.class
 miCiudad/modules/miCiudad/fixture/Barrio_persona$PersistAll.class
 miCiudad/modules/miCiudad/types/PhoneNumber.class
