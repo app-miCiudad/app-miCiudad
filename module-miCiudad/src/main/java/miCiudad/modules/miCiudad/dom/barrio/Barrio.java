@@ -14,7 +14,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
-import javax.persistence.Version;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import miCiudad.modules.miCiudad.types.*;
@@ -125,7 +124,7 @@ public class Barrio implements Comparable<Barrio> {
 
     @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
     @ActionLayout(
-            associateWith = "nombre", position = ActionLayout.Position.PANEL,
+            associateWith = "name", position = ActionLayout.Position.PANEL,
             describedAs = "Deletes this object from the persistent datastore")
     public void delete() {
         final String title = titleService.titleOf(this);

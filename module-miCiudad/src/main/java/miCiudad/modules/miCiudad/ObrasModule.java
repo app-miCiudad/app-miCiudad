@@ -1,6 +1,7 @@
 package miCiudad.modules.miCiudad;
 
 import miCiudad.modules.miCiudad.dom.barrio.Barrio;
+
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -22,6 +23,7 @@ public class ObrasModule implements ModuleWithFixtures {
             protected void execute(ExecutionContext executionContext) {
                 repositoryService.removeAll(Barrio.class);
             }
+            
         };
     }
 }

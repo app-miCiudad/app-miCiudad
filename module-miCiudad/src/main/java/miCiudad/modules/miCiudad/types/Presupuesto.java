@@ -1,6 +1,6 @@
 package miCiudad.modules.miCiudad.types;
 
-import org.apache.isis.applib.annotation.Editing;
+
 import org.apache.isis.applib.annotation.Optionality;
 import org.apache.isis.applib.annotation.Parameter;
 import org.apache.isis.applib.annotation.Property;

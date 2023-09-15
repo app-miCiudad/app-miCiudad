@@ -1,6 +1,7 @@
 package miCiudad.modules.miCiudad.dom.barrio;
 
 import lombok.RequiredArgsConstructor;
+import miCiudad.modules.miCiudad.dom.obra.Obra;
 import miCiudad.modules.miCiudad.types.*;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.repository.RepositoryService;
@@ -21,9 +22,9 @@ public class Barrio_addObra {
     public Barrio act(
             @Titulo final String titulo, @Especificacion final String esp,
             @Fecha final DateTime fechaInicio, @Fecha final DateTime fechaFinal,
-            @Presupuesto double presupuesto, @Empresa final String empresa
+            @Presupuesto double presupuesto
             ) {
-        repositoryService.persist(new Obra(barrio,titulo,esp,fechaInicio,fechaFinal, presupuesto, empresa));
+        repositoryService.persist(new Obra(barrio,titulo,esp,fechaInicio,fechaFinal, presupuesto));
         return barrio;
     }
 
