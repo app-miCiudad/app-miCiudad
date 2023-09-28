@@ -1,12 +1,13 @@
 package miCiudad.modules.miCiudad.dom.obra;
 
-import org.springframework.data.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import miCiudad.modules.miCiudad.dom.barrio.Barrio;
+import miCiudad.modules.miCiudad.dom.empresa.Empresa;
 
 import java.util.List;
 
-public interface ObraRepository extends Repository<Obra, Long> {
+public interface ObraRepository extends JpaRepository<Obra, Long> {
     
 
     List<Obra> findByBarrio(Barrio barrio);
