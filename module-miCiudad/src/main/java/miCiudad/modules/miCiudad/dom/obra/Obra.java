@@ -16,6 +16,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import miCiudad.modules.miCiudad.dom.barrio.Barrio;
 import miCiudad.modules.miCiudad.types.*;
+import miCiudad.modules.miCiudad.types.TypesObra.FechaObra;
+import miCiudad.modules.miCiudad.types.TypesObra.LatitudObra;
+import miCiudad.modules.miCiudad.types.TypesObra.PresupuestoObra;
+import miCiudad.modules.miCiudad.types.TypesObra.TipoObra;
+import miCiudad.modules.miCiudad.types.TypesObra.TituloObra;
+
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.jaxb.PersistentEntityAdapter;
 import org.apache.isis.persistence.jpa.applib.integration.IsisEntityListener;
@@ -44,6 +50,7 @@ import org.joda.time.DateTime;
 @ToString(onlyExplicitlyIncluded = true)
 public class Obra implements Comparable<Obra> {
 
+    ////////////////// Atributos//////////////
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -52,27 +59,16 @@ public class Obra implements Comparable<Obra> {
     private Long id;
 
 
-
-    public Obra(Barrio barrio, String titulo, String esp, DateTime fechaInicio, DateTime fechaFinal,
-         double presupuesto) {
-        this.barrio = barrio;
-        this.titulo = titulo;
-        this.especificacion = esp;
-        this.fechaInicio = fechaInicio;
-        this.fechaFinal = fechaFinal;
-        this.presupuesto = presupuesto;
-    }
-
-
     @ManyToOne(optional = false)
     @JoinColumn(name = "barrio_id")
     @PropertyLayout(fieldSetId = "name", sequence = "1")
     @Getter @Setter
     private Barrio barrio;
 
-    @Titulo
+    @TituloObra
     @Column(name = "titulo", length = Nombre.MAX_LEN, nullable = false)
     @Getter @Setter
+    @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @PropertyLayout(fieldSetId = "titulo", sequence = "2")
     private String titulo;
 
@@ -83,28 +79,63 @@ public class Obra implements Comparable<Obra> {
     @PropertyLayout(fieldSetId = "especificacion", sequence = "1")
     private String especificacion;
 
-    @Fecha
+    @FechaObra
     @Column(name="fechaInicio", nullable = true)
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @PropertyLayout(fieldSetId = "Fecha Inicio", sequence = "1")
     private DateTime fechaInicio;
 
-    @Fecha
+    @FechaObra
     @Column(name="fechaFinal", nullable = true)
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @PropertyLayout(fieldSetId = "Fecha Final", sequence = "1")
     private DateTime fechaFinal;
 
-    @Presupuesto
+    @PresupuestoObra
     @Column(name="presupuesto", nullable=true)
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @PropertyLayout(fieldSetId = "Presupuesto", sequence = "1")
     private double presupuesto;
 
+    @LatitudObra
+    @Column(name="latitud", nullable=false)
+    @Getter @Setter
+    @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
+    @PropertyLayout(fieldSetId = "Latitud", sequence = "1")
+    private double latitud;
 
+    @LatitudObra
+    @Column(name="longitud", nullable=false)
+    @Getter @Setter
+    @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
+    @PropertyLayout(fieldSetId = "Longitud", sequence = "1")
+    private double longitud;
+
+    @TipoObra
+    @Column(name="tipo", nullable=false)
+    @Getter @Setter
+    @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
+    @PropertyLayout(fieldSetId = "Tipo Obra", sequence = "1")
+    private String tipo;
+    ///////////////////////////////
+
+    //////////// Constructor ////////////
+    public Obra(Barrio barrio, String titulo, String esp, DateTime fechaInicio, DateTime fechaFinal,
+         double presupuesto, double latitud, double longitud, String tipo) {
+        this.barrio = barrio;
+        this.titulo = titulo;
+        this.especificacion = esp;
+        this.fechaInicio = fechaInicio;
+        this.fechaFinal = fechaFinal;
+        this.presupuesto = presupuesto;
+        this.latitud = latitud;
+        this.longitud = longitud;
+        this.tipo = tipo;
+    }
+    /////////////////////////////////////
 
     private final static Comparator<Obra> comparator =
             Comparator.comparing(Obra::getBarrio).thenComparing(Obra::getTitulo);
