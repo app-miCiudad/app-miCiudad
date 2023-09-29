@@ -24,6 +24,7 @@ miCiudad\modules\miCiudad\types\TyEmpresa$Spec.class
 miCiudad\modules\miCiudad\dom\empresa\Empresas.class
 miCiudad\modules\miCiudad\types\TypesContactoPrivado\CargoContactoPrivado.class
 miCiudad\modules\miCiudad\types\Nombre$Spec.class
+miCiudad\modules\miCiudad\types\TypesObra\TyEmpresaObra.class
 miCiudad\modules\miCiudad\types\TypesObra\PresupuestoObra.class
 miCiudad\modules\miCiudad\dom\obra\Obras.class
 miCiudad\modules\miCiudad\types\EmailAddress.class

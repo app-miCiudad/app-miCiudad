@@ -7,8 +7,6 @@ import javax.inject.Inject;
 import lombok.RequiredArgsConstructor;
 import miCiudad.modules.miCiudad.dom.contactoPrivado.ContactoPrivado;
 import miCiudad.modules.miCiudad.dom.contactoPrivado.ContactoPrivadoRepository;
-import miCiudad.modules.miCiudad.dom.contactoPublico.ContactoPublico;
-import miCiudad.modules.miCiudad.dom.contactoPublico.ContactoPublicoRepository;
 
 import org.apache.isis.applib.annotation.Collection;
 import org.apache.isis.applib.annotation.CollectionLayout;

@@ -140,8 +140,6 @@ public class Empresa {
         return getNombre();
     }
 
-
-
     //////////////////////////////
 
 

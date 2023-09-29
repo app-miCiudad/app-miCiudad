@@ -2,12 +2,10 @@ package miCiudad.modules.miCiudad.dom.empresa;
 
 import lombok.RequiredArgsConstructor;
 import miCiudad.modules.miCiudad.dom.contactoPrivado.ContactoPrivado;
-import miCiudad.modules.miCiudad.dom.contactoPublico.ContactoPublico;
 import miCiudad.modules.miCiudad.types.TypesContactoPrivado.CargoContactoPrivado;
 import miCiudad.modules.miCiudad.types.TypesContactoPrivado.EmailAddressContactoPrivado;
 import miCiudad.modules.miCiudad.types.TypesContactoPrivado.NombreContactoPrivado;
 import miCiudad.modules.miCiudad.types.TypesContactoPrivado.PhoneNumberContactoPrivado;
-import miCiudad.modules.miCiudad.types.TypesContactoPublico.LinkContactoPublico;
 
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.repository.RepositoryService;

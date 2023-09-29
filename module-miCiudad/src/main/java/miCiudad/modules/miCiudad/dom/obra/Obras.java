@@ -10,7 +10,6 @@ import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 
 import lombok.RequiredArgsConstructor;
-import miCiudad.modules.miCiudad.dom.empresa.Empresa;
 
 import javax.inject.Inject;
 import org.apache.isis.applib.annotation.NatureOfService;
