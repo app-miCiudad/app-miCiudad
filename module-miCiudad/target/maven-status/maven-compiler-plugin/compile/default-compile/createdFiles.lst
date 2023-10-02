@@ -6,6 +6,7 @@ miCiudad\modules\miCiudad\ObrasModule.class
 miCiudad\modules\miCiudad\dom\barrio\BarrioRepository.class
 miCiudad\modules\miCiudad\types\TypesContactoPrivado\CargoContactoPrivado$Spec.class
 miCiudad\modules\miCiudad\fixture\Barrio_persona.class
+miCiudad\modules\miCiudad\types\TypesObra\TyEstadoObra.class
 miCiudad\modules\miCiudad\fixture\BarrioBuilder.class
 miCiudad\modules\miCiudad\types\Nombre.class
 miCiudad\modules\miCiudad\dom\empresa\Empresa_addContactoPrivado.class
