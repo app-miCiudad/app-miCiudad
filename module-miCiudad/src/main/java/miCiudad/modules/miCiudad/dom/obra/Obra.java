@@ -18,7 +18,6 @@ import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import miCiudad.modules.miCiudad.dom.barrio.Barrio;
-import miCiudad.modules.miCiudad.dom.contactoPublico.ContactoPublico;
 import miCiudad.modules.miCiudad.dom.empresa.Empresa;
 import miCiudad.modules.miCiudad.dom.empresa.EmpresaRepository;
 import miCiudad.modules.miCiudad.types.*;
@@ -36,13 +35,13 @@ import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 import org.apache.isis.persistence.jpa.applib.integration.IsisEntityListener;
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
+import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
 
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.val;
 
 import org.joda.time.DateTime;
 
@@ -62,6 +61,9 @@ import org.joda.time.DateTime;
 @ToString(onlyExplicitlyIncluded = true)
 public class Obra implements Comparable<Obra> {
     @Inject @Transient EmpresaRepository empresaRepository;
+    @Inject @Transient RepositoryService repositoryService;
+    @Inject @Transient TitleService titleService;
+    @Inject @Transient MessageService messageService;
     ////////////////// Atributos//////////////
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -79,64 +81,65 @@ public class Obra implements Comparable<Obra> {
 
     @OneToOne(optional = true)
     @JoinColumn(name = "empresa_id")
-    @PropertyLayout(fieldSetId = "name", sequence = "1")
+    @PropertyLayout(fieldSetId = "name", sequence = "2")
     @Getter @Setter
     private Empresa empresa;
+
 
     @TituloObra
     @Column(name = "titulo", length = Nombre.MAX_LEN, nullable = false)
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
-    @PropertyLayout(fieldSetId = "titulo", sequence = "2")
+    @PropertyLayout(fieldSetId = "name", sequence = "3")
     private String titulo;
 
     @Especificacion
     @Column(name ="especificacion", length = Especificacion.MAX_LEN, nullable = false)
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
-    @PropertyLayout(fieldSetId = "especificacion", sequence = "1")
+    @PropertyLayout(fieldSetId = "name", sequence = "4")
     private String especificacion;
 
     @FechaObra
     @Column(name="fechaInicio", nullable = true)
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
-    @PropertyLayout(fieldSetId = "Fecha Inicio", sequence = "1")
+    @PropertyLayout(fieldSetId = "name", sequence = "5")
     private DateTime fechaInicio;
 
     @FechaObra
     @Column(name="fechaFinal", nullable = true)
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
-    @PropertyLayout(fieldSetId = "Fecha Final", sequence = "1")
+    @PropertyLayout(fieldSetId = "name", sequence = "6")
     private DateTime fechaFinal;
 
     @PresupuestoObra
     @Column(name="presupuesto", nullable=true)
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
-    @PropertyLayout(fieldSetId = "Presupuesto", sequence = "1")
+    @PropertyLayout(fieldSetId = "name", sequence = "7")
     private double presupuesto;
 
     @LatitudObra
     @Column(name="latitud", nullable=false)
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
-    @PropertyLayout(fieldSetId = "Latitud", sequence = "1")
+    @PropertyLayout(fieldSetId = "name", sequence = "8")
     private double latitud;
 
     @LatitudObra
     @Column(name="longitud", nullable=false)
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
-    @PropertyLayout(fieldSetId = "Longitud", sequence = "1")
+    @PropertyLayout(fieldSetId = "name", sequence = "9")
     private double longitud;
 
     @TipoObra
     @Column(name="tipo", nullable=false)
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
-    @PropertyLayout(fieldSetId = "Tipo Obra", sequence = "1")
+    @PropertyLayout(fieldSetId = "name", sequence = "10")
     private String tipo;
     ///////////////////////////////
 
@@ -164,12 +167,10 @@ public class Obra implements Comparable<Obra> {
         return comparator.compare(this, other);
     }
 
-    
-
-        ////// Actualizar atributos de la entidad ////
+    ////// Actualizar atributos de la entidad ////
 
     @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
-    @PropertyLayout(fieldSetId = "name", sequence = "1", named = "Editar Empresa")
+    @ActionLayout(associateWith = "empresa_id")
     public Obra updateEmpresa(
             @NombreEmpresa final String nombre) {
         
@@ -179,7 +180,20 @@ public class Obra implements Comparable<Obra> {
     }
 
 
-
     //////////////////////////////
+
+    ///// Eliminar ////
+    @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
+    @ActionLayout(
+        position = ActionLayout.Position.PANEL,
+        describedAs = "Deletes this object from the persistent datastore")
+    public void delete() {
+        final String title = titleService.titleOf(this);
+        messageService.informUser(String.format("'%s' deleted", title));
+        repositoryService.removeAndFlush(this);
+    }
+    ////////////////////////////////
+    
+
 
 }
