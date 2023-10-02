@@ -8,6 +8,7 @@ import miCiudad.modules.miCiudad.types.TypesObra.LatitudObra;
 import miCiudad.modules.miCiudad.types.TypesObra.PresupuestoObra;
 import miCiudad.modules.miCiudad.types.TypesObra.TipoObra;
 import miCiudad.modules.miCiudad.types.TypesObra.TituloObra;
+import miCiudad.modules.miCiudad.types.TypesObra.TyEstadoObra;
 
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.repository.RepositoryService;
@@ -29,10 +30,10 @@ public class Barrio_addObra {
             @TituloObra final String titulo, @Especificacion final String esp,
             @FechaObra final DateTime fechaInicio, @FechaObra final DateTime fechaFinal,
             @PresupuestoObra final double presupuesto, @LatitudObra final double latitud,
-            @LatitudObra final double longitud, @TipoObra final String tipo
+            @LatitudObra final double longitud, @TipoObra final String tipo, @TyEstadoObra final String estado
             ) {
         repositoryService.persist(new Obra(barrio,titulo,esp,fechaInicio,fechaFinal, presupuesto,
-        latitud,longitud,tipo));
+        latitud,longitud,tipo,estado));
         return barrio;
     }
 

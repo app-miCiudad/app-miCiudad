@@ -27,6 +27,7 @@ import miCiudad.modules.miCiudad.types.TypesObra.LatitudObra;
 import miCiudad.modules.miCiudad.types.TypesObra.PresupuestoObra;
 import miCiudad.modules.miCiudad.types.TypesObra.TipoObra;
 import miCiudad.modules.miCiudad.types.TypesObra.TituloObra;
+import miCiudad.modules.miCiudad.types.TypesObra.TyEstadoObra;
 
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.jaxb.PersistentEntityAdapter;
@@ -141,11 +142,18 @@ public class Obra implements Comparable<Obra> {
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @PropertyLayout(fieldSetId = "name", sequence = "10")
     private String tipo;
+
+    @TyEstadoObra
+    @Column(name ="TyEstadoObra", length = TyEstadoObra.MAX_LEN, nullable = false)
+    @Getter @Setter
+    @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
+    @PropertyLayout(fieldSetId = "name", sequence = "11")
+    private String estado;
     ///////////////////////////////
 
     //////////// Constructor ////////////
     public Obra(Barrio barrio, String titulo, String esp, DateTime fechaInicio, DateTime fechaFinal,
-         double presupuesto, double latitud, double longitud, String tipo) {
+         double presupuesto, double latitud, double longitud, String tipo, String estado) {
         this.barrio = barrio;
         this.titulo = titulo;
         this.especificacion = esp;
@@ -155,6 +163,7 @@ public class Obra implements Comparable<Obra> {
         this.latitud = latitud;
         this.longitud = longitud;
         this.tipo = tipo;
+        this.estado = estado;
     }
     /////////////////////////////////////
 
