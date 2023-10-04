@@ -167,6 +167,9 @@ public class Obra implements Comparable<Obra> {
     }
     /////////////////////////////////////
 
+    public String title() {
+        return getTitulo();
+    }
 
     private final static Comparator<Obra> comparator =
             Comparator.comparing(Obra::getBarrio).thenComparing(Obra::getTitulo);

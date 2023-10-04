@@ -98,7 +98,9 @@ public class ContactoPublico {
 
 
     ////////////////////////////////
-
+    public String title() {
+        return getEmpresa().getName();
+    }
 
 
     ///Constructor //////////////////

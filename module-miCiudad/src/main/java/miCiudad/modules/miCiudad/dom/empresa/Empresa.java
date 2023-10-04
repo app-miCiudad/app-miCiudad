@@ -93,6 +93,9 @@ public class Empresa {
 
 
     ////////////////////////////////
+    public String title() {
+        return getNombre();
+    }
 
 
     public static Empresa withName(String name) {
