@@ -1,4 +1,5 @@
-package miCiudad.modules.miCiudad.types;
+package miCiudad.modules.miCiudad.types.TypesObra;
+
 
 import org.apache.isis.applib.annotation.Editing;
 import org.apache.isis.applib.annotation.Optionality;
@@ -10,11 +11,11 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Property(maxLength = Presupuesto.MAX_LEN, optionality = Optionality.OPTIONAL)
-@Parameter(maxLength = Presupuesto.MAX_LEN, optionality = Optionality.OPTIONAL)
+@Property(editing = Editing.ENABLED,maxLength = PresupuestoObra.MAX_LEN, optionality = Optionality.OPTIONAL)
+@Parameter(maxLength = PresupuestoObra.MAX_LEN, optionality = Optionality.OPTIONAL)
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Presupuesto {
+public @interface PresupuestoObra {
 
     int MAX_LEN = 60;
 

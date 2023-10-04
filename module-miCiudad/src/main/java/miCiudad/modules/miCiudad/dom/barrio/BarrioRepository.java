@@ -10,4 +10,10 @@ public interface BarrioRepository extends JpaRepository<Barrio, Long> {
 
     Barrio findByNombre(final String name);
 
+    /* 
+    List<Obra> findByBarrio(Barrio barrio);
+
+    Optional<Barrio> findByBarrioAndName(Barrio barrio, String name);
+    */
+
 }
