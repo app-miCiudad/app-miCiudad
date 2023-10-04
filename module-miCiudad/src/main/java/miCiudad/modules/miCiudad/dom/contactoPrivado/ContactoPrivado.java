@@ -125,7 +125,7 @@ public class ContactoPrivado {
 
     ////////////////////////////////
     public String title() {
-        return getEmpresa().getName();
+        return getNombre();
     }
 
 
