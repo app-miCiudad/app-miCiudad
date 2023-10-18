@@ -10,13 +10,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import miCiudad.modules.miCiudad.dom.barrio.Barrio;
+import miCiudad.modules.miCiudad.dom.empresa.Empresa;
 import miCiudad.modules.miCiudad.dom.empresa.EmpresaRepository;
 import miCiudad.modules.miCiudad.types.*;
+import miCiudad.modules.miCiudad.types.TypesEmpresa.NombreEmpresa;
 import miCiudad.modules.miCiudad.types.TypesObra.FechaObra;
 import miCiudad.modules.miCiudad.types.TypesObra.LatitudObra;
 import miCiudad.modules.miCiudad.types.TypesObra.PresupuestoObra;
@@ -30,6 +33,7 @@ import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 import org.apache.isis.persistence.jpa.applib.integration.IsisEntityListener;
 import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
+import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -73,13 +77,13 @@ public class Obra implements Comparable<Obra> {
     @Getter @Setter
     private Barrio barrio;
 
-    /* 
+    
     @OneToOne
     @JoinColumn(name = "empresa_id")
     @PropertyLayout(fieldSetId = "name", sequence = "2")
     @Getter @Setter
     private Empresa empresa;
-    */
+    
 
     @TituloObra
     @Column(name = "titulo", length = Nombre.MAX_LEN, nullable = false)
@@ -175,9 +179,9 @@ public class Obra implements Comparable<Obra> {
         return comparator.compare(this, other);
     }
 
-    /* 
+    
     ////// Agregar empresa //////
-    @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
+    @Action(semantics = IDEMPOTENT,commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @ActionLayout(associateWith = "empresa_id")
     public Obra updateEmpresa(
             @NombreEmpresa final String nombre) {
@@ -187,7 +191,7 @@ public class Obra implements Comparable<Obra> {
         return this;
     }
     //////////////////////////////
-*/
+
 
     ///// Eliminar /////
     @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
