@@ -1,7 +1,6 @@
 package miCiudad.modules.miCiudad.dom.obra;
 
 import java.util.Comparator;
-
 import javax.inject.Inject;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,39 +10,31 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import miCiudad.modules.miCiudad.dom.barrio.Barrio;
-import miCiudad.modules.miCiudad.dom.empresa.Empresa;
 import miCiudad.modules.miCiudad.dom.empresa.EmpresaRepository;
 import miCiudad.modules.miCiudad.types.*;
-import miCiudad.modules.miCiudad.types.TypesEmpresa.NombreEmpresa;
 import miCiudad.modules.miCiudad.types.TypesObra.FechaObra;
 import miCiudad.modules.miCiudad.types.TypesObra.LatitudObra;
 import miCiudad.modules.miCiudad.types.TypesObra.PresupuestoObra;
 import miCiudad.modules.miCiudad.types.TypesObra.TipoObra;
 import miCiudad.modules.miCiudad.types.TypesObra.TituloObra;
 import miCiudad.modules.miCiudad.types.TypesObra.TyEstadoObra;
-
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.jaxb.PersistentEntityAdapter;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 import org.apache.isis.persistence.jpa.applib.integration.IsisEntityListener;
-import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
-
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
 import org.joda.time.DateTime;
 
 
@@ -65,6 +56,8 @@ public class Obra implements Comparable<Obra> {
     @Inject @Transient RepositoryService repositoryService;
     @Inject @Transient TitleService titleService;
     @Inject @Transient MessageService messageService;
+
+
     ////////////////// Atributos//////////////
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -80,12 +73,13 @@ public class Obra implements Comparable<Obra> {
     @Getter @Setter
     private Barrio barrio;
 
-    @OneToOne(optional = true)
+    /* 
+    @OneToOne
     @JoinColumn(name = "empresa_id")
     @PropertyLayout(fieldSetId = "name", sequence = "2")
     @Getter @Setter
     private Empresa empresa;
-
+    */
 
     @TituloObra
     @Column(name = "titulo", length = Nombre.MAX_LEN, nullable = false)
@@ -153,7 +147,7 @@ public class Obra implements Comparable<Obra> {
 
     //////////// Constructor ////////////
     public Obra(Barrio barrio, String titulo, String esp, DateTime fechaInicio, DateTime fechaFinal,
-         double presupuesto, double latitud, double longitud, String tipo, String estado) {
+    double presupuesto, double latitud, double longitud, String tipo, String estado) {
         this.barrio = barrio;
         this.titulo = titulo;
         this.especificacion = esp;
@@ -167,9 +161,11 @@ public class Obra implements Comparable<Obra> {
     }
     /////////////////////////////////////
 
+    ///// Muestra el titulo ////
     public String title() {
         return getTitulo();
     }
+    ////////////////////////
 
     private final static Comparator<Obra> comparator =
             Comparator.comparing(Obra::getBarrio).thenComparing(Obra::getTitulo);
@@ -179,8 +175,8 @@ public class Obra implements Comparable<Obra> {
         return comparator.compare(this, other);
     }
 
-    ////// Actualizar atributos de la entidad ////
-
+    /* 
+    ////// Agregar empresa //////
     @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @ActionLayout(associateWith = "empresa_id")
     public Obra updateEmpresa(
@@ -190,11 +186,10 @@ public class Obra implements Comparable<Obra> {
         setEmpresa(em);
         return this;
     }
-
-
     //////////////////////////////
+*/
 
-    ///// Eliminar ////
+    ///// Eliminar /////
     @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
     @ActionLayout(
         position = ActionLayout.Position.PANEL,

@@ -28,7 +28,8 @@ public class Obras {
     final RepositoryService repositoryService;
     final ObraRepository obraRepository;
     
-        ///// Listar todos los datos //////
+    
+    ///// Listar todos los datos //////
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
     public List<Obra> listAll() {

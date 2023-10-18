@@ -1,9 +1,7 @@
 package miCiudad.modules.miCiudad.dom.empresa;
 
 import java.util.List;
-
 import javax.annotation.Priority;
-
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
 import org.apache.isis.applib.annotation.BookmarkPolicy;
@@ -11,12 +9,8 @@ import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.services.repository.RepositoryService;
-
 import lombok.RequiredArgsConstructor;
 import miCiudad.modules.miCiudad.types.TypesEmpresa.NombreEmpresa;
-
-
-
 import javax.inject.Inject;
 import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.applib.annotation.PriorityPrecedence;

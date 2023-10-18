@@ -9,11 +9,9 @@ import miCiudad.modules.miCiudad.types.TypesObra.PresupuestoObra;
 import miCiudad.modules.miCiudad.types.TypesObra.TipoObra;
 import miCiudad.modules.miCiudad.types.TypesObra.TituloObra;
 import miCiudad.modules.miCiudad.types.TypesObra.TyEstadoObra;
-
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.joda.time.DateTime;
-
 import javax.inject.Inject;
 
 @Action(
@@ -24,8 +22,10 @@ import javax.inject.Inject;
 @ActionLayout(associateWith = "miCiudad")
 @RequiredArgsConstructor
 public class Barrio_addObra {
+    
     private final Barrio barrio;
 
+    ///// Boton de agregar Obras en Barrio /////
     public Barrio act(
             @TituloObra final String titulo, @Especificacion final String esp,
             @FechaObra final DateTime fechaInicio, @FechaObra final DateTime fechaFinal,
@@ -36,6 +36,7 @@ public class Barrio_addObra {
         latitud,longitud,tipo,estado));
         return barrio;
     }
+    /////////////////////////////////////////////
 
     @Inject
     RepositoryService repositoryService;

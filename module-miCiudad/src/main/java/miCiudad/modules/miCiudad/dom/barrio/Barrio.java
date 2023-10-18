@@ -1,7 +1,6 @@
 package miCiudad.modules.miCiudad.dom.barrio;
 
 import java.util.Comparator;
-
 import javax.inject.Inject;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +14,6 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import miCiudad.modules.miCiudad.types.*;
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
@@ -30,10 +28,8 @@ import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 import org.apache.isis.persistence.jpa.applib.integration.IsisEntityListener;
-
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
-
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -67,12 +63,26 @@ public class Barrio implements Comparable<Barrio> {
 
     static final String NAMED_QUERY__FIND_BY_NOMBRE_LIKE = "Barrio.findByNombreLike";
 
+    ////// Titulo /////
+    public String title() {
+        return getNombre();
+    }
+    ////////////////////
+
+    //// Atributos de la entidad /////
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     @Getter @Setter
     @PropertyLayout(fieldSetId = "metadata", sequence = "1")
     private Long id;
+
+    @Nombre
+    @Column(length = Nombre.MAX_LEN, nullable = false, name = "nombre")
+    @Getter @Setter @ToString.Include
+    @Property(hidden = Where.EVERYWHERE)
+    private String nombre;
+    ///////////////////////////////
 
 
     public static Barrio withName(String name) {
@@ -85,14 +95,20 @@ public class Barrio implements Comparable<Barrio> {
         return simpleObject;
     }
 
+    private final static Comparator<Barrio> comparator =
+        Comparator.comparing(Barrio::getNombre);
+
+    @Override
+    public int compareTo(final Barrio other) {
+        return comparator.compare(this, other);
+    }
+
+
     @Inject @Transient RepositoryService repositoryService;
     @Inject @Transient TitleService titleService;
     @Inject @Transient MessageService messageService;
 
 
-    public String title() {
-        return getNombre();
-    }
 
     @Transient
     @PropertyLayout(fieldSetId = "name", sequence = "1", named = "Nombre Barrio")
@@ -100,11 +116,7 @@ public class Barrio implements Comparable<Barrio> {
         return  getNombre();
     }
 
-    @Nombre
-    @Column(length = Nombre.MAX_LEN, nullable = false, name = "nombre")
-    @Getter @Setter @ToString.Include
-    @Property(hidden = Where.EVERYWHERE)
-    private String nombre;
+    
 
 
 
@@ -121,7 +133,7 @@ public class Barrio implements Comparable<Barrio> {
     }
 
 
-
+    /// Eliminar datos ///
     @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
     @ActionLayout(
             associateWith = "name", position = ActionLayout.Position.PANEL,
@@ -131,15 +143,6 @@ public class Barrio implements Comparable<Barrio> {
         messageService.informUser(String.format("'%s' deleted", title));
         repositoryService.removeAndFlush(this);
     }
-
-
-
-    private final static Comparator<Barrio> comparator =
-            Comparator.comparing(Barrio::getNombre);
-
-    @Override
-    public int compareTo(final Barrio other) {
-        return comparator.compare(this, other);
-    }
+    //////////////////////////////////////
 
 }

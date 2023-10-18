@@ -120,10 +120,9 @@ public class ContactoPrivado {
     @PropertyLayout(fieldSetId = "name", sequence = "1")
     @Getter @Setter
     private String cargo;
-    
-
-
     ////////////////////////////////
+
+    
     public String title() {
         return getNombre();
     }
