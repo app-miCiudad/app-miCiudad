@@ -2,7 +2,7 @@
 if [ $# = 1 ]; then
   PARENT=$1
 else
-  PARENT=$(curl -X GET "https://nexus.incode.work/service/rest/v1/search?sort=version&repository=nightly-builds&group=org.apache.isis.app&name=isis-app-starter-parent" -H "accept: application/json" -s | jq '.items[0].version' | sed 's/"//g')
+  PARENT=$(curl -X GET "https://nexus.incode.work/service/rest/v1/search?sort=version&repository=nightly-builds&group=org.apache.isis.app&name=isis-app-starter-parent" -H "accept: application/json;profile=urn:org.apache.isis/v2;suppress=all" -s | jq '.items[0].version' | sed 's/"//g')
 fi
 
 echo "parentVersion = $PARENT"
