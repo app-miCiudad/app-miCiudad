@@ -6,14 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BarrioRepository extends JpaRepository<Barrio, Long> {
 
+    /// Listar ///
     List<Barrio> findByNombreContaining(final String name);
 
+    /// Buscar por nombre ///
     Barrio findByNombre(final String name);
-
-    /* 
-    List<Obra> findByBarrio(Barrio barrio);
-
-    Optional<Barrio> findByBarrioAndName(Barrio barrio, String name);
-    */
 
 }

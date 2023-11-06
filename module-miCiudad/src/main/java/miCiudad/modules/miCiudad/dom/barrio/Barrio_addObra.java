@@ -1,6 +1,7 @@
 package miCiudad.modules.miCiudad.dom.barrio;
 
 import lombok.RequiredArgsConstructor;
+import miCiudad.modules.miCiudad.dom.obra.EnumEstado;
 import miCiudad.modules.miCiudad.dom.obra.Obra;
 import miCiudad.modules.miCiudad.types.*;
 import miCiudad.modules.miCiudad.types.TypesObra.FechaObra;
@@ -30,7 +31,7 @@ public class Barrio_addObra {
             @TituloObra final String titulo, @Especificacion final String esp,
             @FechaObra final DateTime fechaInicio, @FechaObra final DateTime fechaFinal,
             @PresupuestoObra final double presupuesto, @LatitudObra final double latitud,
-            @LatitudObra final double longitud, @TipoObra final String tipo, @TyEstadoObra final String estado
+            @LatitudObra final double longitud, @TipoObra final String tipo, @TyEstadoObra final EnumEstado estado
             ) {
         repositoryService.persist(new Obra(barrio,titulo,esp,fechaInicio,fechaFinal, presupuesto,
         latitud,longitud,tipo,estado));

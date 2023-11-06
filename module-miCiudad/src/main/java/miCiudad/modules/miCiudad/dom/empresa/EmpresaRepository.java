@@ -6,8 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface EmpresaRepository extends JpaRepository<Empresa, Long> {
 
+    /// Listar ///
     List<Empresa> findByNombreContaining(final String name);
 
+    //// Buscador ///
     Empresa findByNombre(final String name);
 
 }

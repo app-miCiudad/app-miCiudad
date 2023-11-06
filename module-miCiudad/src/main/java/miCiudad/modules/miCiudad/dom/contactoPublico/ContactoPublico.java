@@ -111,49 +111,7 @@ public class ContactoPublico {
     ///////////////////////
 
 
-    public static ContactoPublico withLink(String name) {
-        return withLink(name,null);
-    }
 
-    public static ContactoPublico withLink(String link, String nombre) {
-        val simpleObject = new ContactoPublico();
-        simpleObject.setLink(link);
-        return simpleObject;
-    }
-
-    
-
-
-/* 
-    
-    public String link() {
-        return getLink();
-    }
-    
-    @Transient
-    @PropertyLayout(fieldSetId = "name", sequence = "1", named = "Link")
-    public String getLinkAux() {
-        return  getLink();
-    }
-
-*/
-
-
-/* 
-    ////// Actualizar atributos de la entidad ////
-    @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
-    @PropertyLayout(fieldSetId = "name", sequence = "2", named = "Editar Link")
-    public ContactoPublico updateLink(
-            @LinkContactoPublico final String link) {
-        setLink(link);
-        return this;
-    }
-    public String default0UpdateLink() {
-        return getLink();
-    }
-
-    //////////////////////////////
-*/
 
     ///// Eliminar ////
     @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
@@ -168,5 +126,17 @@ public class ContactoPublico {
 
     ////////////////////////////////
 
+
+    /// Listar ///
+    public static ContactoPublico withLink(String name) {
+        return withLink(name,null);
+    }
+
+    public static ContactoPublico withLink(String link, String nombre) {
+        val simpleObject = new ContactoPublico();
+        simpleObject.setLink(link);
+        return simpleObject;
+    }
+    ////////////////
     
 }

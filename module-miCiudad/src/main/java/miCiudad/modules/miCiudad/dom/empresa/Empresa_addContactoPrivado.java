@@ -19,6 +19,8 @@ import javax.inject.Inject;
 )
 @ActionLayout(associateWith = "miCiudad")
 @RequiredArgsConstructor
+
+/// Boton agregar Contacto Privado///
 public class Empresa_addContactoPrivado {
 
     private final Empresa empresa;

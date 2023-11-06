@@ -94,12 +94,14 @@ public class Empresa {
 
     ////////////////////////////////
 
-    
+    ///// Muestra el titulo ////
     public String title() {
         return getNombre();
     }
+    
+    /////////////////
 
-
+    //// Listar ////
     public static Empresa withName(String name) {
         return withName(name, null);
     }
@@ -109,15 +111,7 @@ public class Empresa {
         simpleObject.setNombre(nombre);
         return simpleObject;
     }
-
-    
-
-
-    public String nombre() {
-        return getNombre();
-    }
-    
-
+    ////////////////////////
     
 
     @Transient
@@ -125,13 +119,11 @@ public class Empresa {
     public String getName() {
         return  getNombre();
     }
+    public String nombre() {
+        return getNombre();
+    }
 
     
-
-
-
-
-
     ////// Actualizar atributos de la entidad ////
 
     @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)

@@ -7,6 +7,7 @@ import java.util.concurrent.Callable;
 
 import javax.inject.Inject;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,6 +29,7 @@ class CustomController {
     private final TransactionalProcessor transactionalProcessor;
     private final Barrios barrios;
 
+    //@CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "Requestor-Type", exposedHeaders = "X-Get-Header")
     @GetMapping("/custom/simpleObjects")
     List<Barrio> all() {
         return call("sven", barrios::listAll)

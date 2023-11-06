@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface ObraRepository extends JpaRepository<Obra, Long> {
     
-
+    //// Listar ////
     List<Obra> findByBarrio(Barrio barrio);
 }

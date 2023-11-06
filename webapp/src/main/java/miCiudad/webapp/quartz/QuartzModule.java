@@ -38,4 +38,6 @@ public class QuartzModule {
         trigger.setRepeatCount(SimpleTrigger.REPEAT_INDEFINITELY);
         return trigger;
     }
+
+
 }

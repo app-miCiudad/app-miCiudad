@@ -16,6 +16,7 @@ import org.apache.isis.applib.annotation.CollectionLayout;
 @Collection
 @CollectionLayout(defaultView = "table")
 @RequiredArgsConstructor
+//// Muestra los Contactos Publica en la paguina de Emrpesa ////
 public class Empresa_contactoPublico {
 
     private final Empresa empresa;

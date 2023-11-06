@@ -34,14 +34,15 @@ public class Barrios {
     final JpaSupportService jpaSupportService;
     final BarrioRepository barrioRepository;
 
-
+    //// Crear Barrio ////
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
     public Barrio create(
             @Nombre final String nombre) {
         return repositoryService.persist(Barrio.withName(nombre));
     }
+    //////////////////
 
-
+    //// Buscar por nombre ////
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
     public List<Barrio> findByNombreLike(
             @Nombre final String nombre) {
@@ -49,8 +50,9 @@ public class Barrios {
                 Query.named(Barrio.class, Barrio.NAMED_QUERY__FIND_BY_NOMBRE_LIKE)
                      .withParameter("nombre", "%" + nombre + "%"));
     }
+    //////////////////
 
-
+    ///// Buscar por nombre ///////////
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
     public List<Barrio> findByNombre(
@@ -58,21 +60,21 @@ public class Barrios {
             ) {
         return barrioRepository.findByNombreContaining(nombre);
     }
-
+    
 
     @Programmatic
     public Barrio findByNombreExact(final String nombre) {
         return barrioRepository.findByNombre(nombre);
     }
+    ///////////////////
 
-
-
+    ///// Listar Barrios ///
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
     public List<Barrio> listAll() {
         return barrioRepository.findAll();
     }
-
+    //////////////////
 
 
 
