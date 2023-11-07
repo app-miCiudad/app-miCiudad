@@ -104,21 +104,21 @@ public class Obra implements Comparable<Obra> {
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @PropertyLayout(fieldSetId = "name", sequence = "5")
-    private DateTime fechaInicio;
+    private String fechaInicio;
 
     @FechaObra
     @Column(name="fechaFinal", nullable = true)
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @PropertyLayout(fieldSetId = "name", sequence = "6")
-    private DateTime fechaFinal;
+    private String fechaFinal;
 
     @PresupuestoObra
     @Column(name="presupuesto", nullable=true)
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @PropertyLayout(fieldSetId = "name", sequence = "7")
-    private double presupuesto;
+    private String presupuesto;
 
     @LatitudObra
     @Column(name="latitud", nullable=false)
@@ -150,8 +150,8 @@ public class Obra implements Comparable<Obra> {
     ///////////////////////////////
 
     //////////// Constructor ////////////
-    public Obra(Barrio barrio, String titulo, String esp, DateTime fechaInicio, DateTime fechaFinal,
-    double presupuesto, String latitud, String longitud, String tipo, EnumEstado estado) {
+    public Obra(Barrio barrio, String titulo, String esp, String fechaInicio, String fechaFinal,
+    String presupuesto, String latitud, String longitud, String tipo, EnumEstado estado) {
         this.barrio = barrio;
         this.titulo = titulo;
         this.especificacion = esp;
