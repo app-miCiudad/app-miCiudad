@@ -146,12 +146,12 @@ public class Obra implements Comparable<Obra> {
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @PropertyLayout(fieldSetId = "name", sequence = "11")
-    private EnumEstado estado;
+    private String estado;
     ///////////////////////////////
 
     //////////// Constructor ////////////
     public Obra(Barrio barrio, String titulo, String esp, String fechaInicio, String fechaFinal,
-    String presupuesto, String latitud, String longitud, String tipo, EnumEstado estado) {
+    String presupuesto, String latitud, String longitud, String tipo, String estado) {
         this.barrio = barrio;
         this.titulo = titulo;
         this.especificacion = esp;

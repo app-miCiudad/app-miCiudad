@@ -31,7 +31,8 @@ public class Barrio_addObra {
             @TituloObra final String titulo, @Especificacion final String esp,
             @FechaObra final String fechaInicio, @FechaObra final String fechaFinal,
             @PresupuestoObra final String presupuesto, @LatitudObra final String latitud,
-            @LatitudObra final String longitud, @TipoObra final String tipo, @TyEstadoObra final EnumEstado estado
+            @LatitudObra final String longitud, @TipoObra final String tipo, 
+            @TyEstadoObra final String estado
             ) {
         repositoryService.persist(new Obra(barrio,titulo,esp,fechaInicio,fechaFinal, presupuesto,
         latitud,longitud,tipo,estado));
