@@ -85,10 +85,8 @@ public class Obra implements Comparable<Obra> {
     @Getter @Setter
     private Empresa empresa;
     
-    @IdEmpresa
-    @Column(name ="idEmpresa", length = IdEmpresa.MAX_LEN, nullable = true)
-    @Getter @Setter
-    @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED,optionality = Optionality.OPTIONAL)
+
+    @Column(name ="idEmpresa", nullable = true)
     private String idEmpresa;
 
     @TituloObra
@@ -213,6 +211,16 @@ public class Obra implements Comparable<Obra> {
     }
     ////////////////////////////////
     
+    /* 
+    @Action(semantics = IDEMPOTENT,commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
+    @ActionLayout(associateWith = "empresa_id")
+    public String getIdEmpresObra(
+            @NombreEmpresa final String nombre) {
+        
+        Empresa em = empresaRepository.findByNombre(nombre);
+        String res = em.getId().toString();
+        return res;
+    }
 
-
+    */
 }

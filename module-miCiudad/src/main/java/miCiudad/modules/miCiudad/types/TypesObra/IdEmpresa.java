@@ -15,10 +15,9 @@ import org.apache.isis.applib.annotation.Where;
 
 
 
-@Property(editing = Editing.ENABLED, maxLength = IdEmpresa.MAX_LEN)
-@PropertyLayout(named = "idEMpresa", multiLine = 10, hidden = Where.ALL_TABLES)
+
+@PropertyLayout(named = "idEmpresa", multiLine = 10, hidden = Where.EVERYWHERE)
 @Parameter(maxLength = IdEmpresa.MAX_LEN, optionality = Optionality.OPTIONAL)
-@ParameterLayout(named = "idEmpresa", multiLine = 10)
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface IdEmpresa {
