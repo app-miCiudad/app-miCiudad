@@ -168,6 +168,7 @@ public class Obra implements Comparable<Obra> {
         this.longitud = longitud;
         this.tipo = tipo;
         this.estado = estado;
+        this.idEmpresa = null;
         
     }
     /////////////////////////////////////
