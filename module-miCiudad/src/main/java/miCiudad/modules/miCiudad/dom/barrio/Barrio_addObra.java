@@ -36,7 +36,7 @@ public class Barrio_addObra {
             @TyEstadoObra final String estado, final String idEmpresa
             ) {
         repositoryService.persist(new Obra(barrio,titulo,esp,fechaInicio,fechaFinal, presupuesto,
-        latitud,longitud,tipo,estado,null));
+        latitud,longitud,tipo,estado));
         return barrio;
     }
     /////////////////////////////////////////////
