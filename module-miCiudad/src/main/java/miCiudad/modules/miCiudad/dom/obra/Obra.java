@@ -157,7 +157,7 @@ public class Obra implements Comparable<Obra> {
 
     //////////// Constructor ////////////
     public Obra(Barrio barrio, String titulo, String esp, String fechaInicio, String fechaFinal,
-    String presupuesto, String latitud, String longitud, String tipo, String estado) {
+    String presupuesto, String latitud, String longitud, String tipo, String estado, String idEmpresa) {
         this.barrio = barrio;
         this.titulo = titulo;
         this.especificacion = esp;

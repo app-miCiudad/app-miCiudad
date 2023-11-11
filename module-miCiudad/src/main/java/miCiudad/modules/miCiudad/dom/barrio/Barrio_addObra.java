@@ -5,6 +5,7 @@ import miCiudad.modules.miCiudad.dom.obra.EnumEstado;
 import miCiudad.modules.miCiudad.dom.obra.Obra;
 import miCiudad.modules.miCiudad.types.*;
 import miCiudad.modules.miCiudad.types.TypesObra.FechaObra;
+import miCiudad.modules.miCiudad.types.TypesObra.IdEmpresa;
 import miCiudad.modules.miCiudad.types.TypesObra.LatitudObra;
 import miCiudad.modules.miCiudad.types.TypesObra.PresupuestoObra;
 import miCiudad.modules.miCiudad.types.TypesObra.TipoObra;
@@ -32,10 +33,10 @@ public class Barrio_addObra {
             @FechaObra final String fechaInicio, @FechaObra final String fechaFinal,
             @PresupuestoObra final String presupuesto, @LatitudObra final String latitud,
             @LatitudObra final String longitud, @TipoObra final String tipo, 
-            @TyEstadoObra final String estado
+            @TyEstadoObra final String estado, @IdEmpresa final String idEmpresa
             ) {
         repositoryService.persist(new Obra(barrio,titulo,esp,fechaInicio,fechaFinal, presupuesto,
-        latitud,longitud,tipo,estado));
+        latitud,longitud,tipo,estado,null));
         return barrio;
     }
     /////////////////////////////////////////////
