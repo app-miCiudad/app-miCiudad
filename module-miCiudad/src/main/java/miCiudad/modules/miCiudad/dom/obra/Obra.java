@@ -21,6 +21,7 @@ import miCiudad.modules.miCiudad.dom.empresa.EmpresaRepository;
 import miCiudad.modules.miCiudad.types.*;
 import miCiudad.modules.miCiudad.types.TypesEmpresa.NombreEmpresa;
 import miCiudad.modules.miCiudad.types.TypesObra.FechaObra;
+import miCiudad.modules.miCiudad.types.TypesObra.IdEmpresa;
 import miCiudad.modules.miCiudad.types.TypesObra.LatitudObra;
 import miCiudad.modules.miCiudad.types.TypesObra.PresupuestoObra;
 import miCiudad.modules.miCiudad.types.TypesObra.TipoObra;
@@ -84,6 +85,11 @@ public class Obra implements Comparable<Obra> {
     @Getter @Setter
     private Empresa empresa;
     
+    @IdEmpresa
+    @Column(name ="idEmpresa", length = IdEmpresa.MAX_LEN, nullable = true)
+    @Getter @Setter
+    @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED,optionality = Optionality.OPTIONAL)
+    private String idEmpresa;
 
     @TituloObra
     @Column(name = "titulo", length = Nombre.MAX_LEN, nullable = false)
@@ -162,6 +168,7 @@ public class Obra implements Comparable<Obra> {
         this.longitud = longitud;
         this.tipo = tipo;
         this.estado = estado;
+        
     }
     /////////////////////////////////////
 
@@ -188,6 +195,7 @@ public class Obra implements Comparable<Obra> {
         
         Empresa em = empresaRepository.findByNombre(nombre);
         setEmpresa(em);
+        this.idEmpresa = empresa.getId().toString();
         return this;
     }
     //////////////////////////////

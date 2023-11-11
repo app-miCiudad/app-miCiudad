@@ -16,6 +16,7 @@ miCiudad\modules\miCiudad\types\TypesObra\TipoObra.class
 miCiudad\modules\miCiudad\types\Especificacion.class
 miCiudad\modules\miCiudad\types\TypesContactoPublico\LinkContactoPublico.class
 miCiudad\modules\miCiudad\fixture\Barrio_persona$PersistAll.class
+miCiudad\modules\miCiudad\types\TypesObra\IdEmpresa.class
 miCiudad\modules\miCiudad\types\TypesContactoPrivado\NombreContactoPrivado.class
 miCiudad\modules\miCiudad\types\TyEmpresa.class
 miCiudad\modules\miCiudad\dom\obra\Obra.class
