@@ -84,10 +84,7 @@ public class Obra implements Comparable<Obra> {
     @PropertyLayout(fieldSetId = "name", sequence = "2")
     @Getter @Setter
     private Empresa empresa;
-    
 
-    @Column(name ="idEmpresa", nullable = true)
-    private String idEmpresa;
 
     @TituloObra
     @Column(name = "titulo", length = Nombre.MAX_LEN, nullable = false)
@@ -193,7 +190,7 @@ public class Obra implements Comparable<Obra> {
         
         Empresa em = empresaRepository.findByNombre(nombre);
         setEmpresa(em);
-        this.idEmpresa = empresa.getId().toString();
+        //this.idEmpresa = empresa.getId().toString();
         return this;
     }
     //////////////////////////////
