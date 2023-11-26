@@ -1,5 +1,6 @@
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\dom\empresa\Empresas.java
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\types\TypesObra\TituloObra.java
+C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\types\TypesUsuario\ContraseñaUsuario.java
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\dom\barrio\Barrio.java
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\dom\empresa\Empresa_contactoPublico.java
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\types\TyEmpresa.java
@@ -20,16 +21,20 @@ C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\T
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\types\PhoneNumber.java
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\types\TypesObra\FechaObra.java
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\dom\empresa\Empresa.java
+C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\dom\usuario\Usuario.java
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\dom\barrio\BarrioRepository.java
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\types\TypesObra\TyEstadoObra.java
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\dom\contactoPrivado\ContactoPrivado.java
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\dom\barrio\Barrios.java
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\dom\contactoPublico\ContactoPublicoRepository.java
+C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\dom\usuario\UsuarioRepository.java
+C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\types\TypesUsuario\NombreUsuario.java
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\types\TypesContactoPrivado\PhoneNumberContactoPrivado.java
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\ObrasModule.java
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\fixture\Barrio_persona.java
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\dom\obra\ObraRepository.java
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\types\TypesContactoPublico\LinkContactoPublico.java
+C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\dom\usuario\Usuarios.java
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\types\TypesContactoPrivado\EmailAddressContactoPrivado.java
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\dom\obra\Obra.java
 C:\CallREX\Archivos\IFES\Tercer Año\Primer Cuatrimestre\Practica Profesional 2\Tesis\app-miCiudad\module-miCiudad\src\main\java\miCiudad\modules\miCiudad\dom\contactoPrivado\ContactoPrivadoRepository.java

@@ -1,9 +1,11 @@
 miCiudad\modules\miCiudad\dom\empresa\EmpresaRepository.class
 miCiudad\modules\miCiudad\types\TypesContactoPrivado\PhoneNumberContactoPrivado.class
 miCiudad\modules\miCiudad\types\TypesContactoPrivado\NombreContactoPrivado$Spec.class
+miCiudad\modules\miCiudad\dom\usuario\UsuarioRepository.class
 miCiudad\modules\miCiudad\types\TypesObra\TituloObra.class
 miCiudad\modules\miCiudad\ObrasModule.class
 miCiudad\modules\miCiudad\dom\barrio\BarrioRepository.class
+miCiudad\modules\miCiudad\types\TypesUsuario\NombreUsuario.class
 miCiudad\modules\miCiudad\types\TypesContactoPrivado\CargoContactoPrivado$Spec.class
 miCiudad\modules\miCiudad\fixture\Barrio_persona.class
 miCiudad\modules\miCiudad\types\TypesObra\TyEstadoObra.class
@@ -13,6 +15,7 @@ miCiudad\modules\miCiudad\dom\empresa\Empresa_addContactoPrivado.class
 miCiudad\modules\miCiudad\dom\obra\ObraRepository.class
 miCiudad\modules\miCiudad\dom\empresa\Empresa_addContactoPublico.class
 miCiudad\modules\miCiudad\types\TypesObra\TipoObra.class
+miCiudad\modules\miCiudad\dom\usuario\Usuarios.class
 miCiudad\modules\miCiudad\types\Especificacion.class
 miCiudad\modules\miCiudad\types\TypesContactoPublico\LinkContactoPublico.class
 miCiudad\modules\miCiudad\fixture\Barrio_persona$PersistAll.class
@@ -44,4 +47,6 @@ miCiudad\modules\miCiudad\dom\empresa\Empresa_contactoPublico.class
 miCiudad\modules\miCiudad\types\TypesObra\FechaObra.class
 miCiudad\modules\miCiudad\dom\barrio\Barrios.class
 miCiudad\modules\miCiudad\dom\barrio\Barrio_obras.class
+miCiudad\modules\miCiudad\types\TypesUsuario\ContraseñaUsuario.class
+miCiudad\modules\miCiudad\dom\usuario\Usuario.class
 miCiudad\modules\miCiudad\dom\contactoPrivado\ContactoPrivado.class
