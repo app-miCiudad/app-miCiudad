@@ -150,6 +150,7 @@ public class Obra implements Comparable<Obra> {
     private String estado;
     ///////////////////////////////
 
+    public static final String NAMESPACE = "miCiudad";
     //////////// Constructor ////////////
     public Obra(Barrio barrio, String titulo, String esp, String fechaInicio, String fechaFinal,
     String presupuesto, String latitud, String longitud, String tipo, String estado) {

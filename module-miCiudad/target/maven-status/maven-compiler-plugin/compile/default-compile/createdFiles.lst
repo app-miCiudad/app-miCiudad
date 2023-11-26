@@ -5,6 +5,7 @@ miCiudad\modules\miCiudad\dom\usuario\UsuarioRepository.class
 miCiudad\modules\miCiudad\types\TypesObra\TituloObra.class
 miCiudad\modules\miCiudad\ObrasModule.class
 miCiudad\modules\miCiudad\dom\barrio\BarrioRepository.class
+miCiudad\modules\miCiudad\dom\reporte\Reportes.class
 miCiudad\modules\miCiudad\types\TypesUsuario\NombreUsuario.class
 miCiudad\modules\miCiudad\types\TypesContactoPrivado\CargoContactoPrivado$Spec.class
 miCiudad\modules\miCiudad\fixture\Barrio_persona.class
@@ -31,6 +32,7 @@ miCiudad\modules\miCiudad\types\TypesContactoPrivado\CargoContactoPrivado.class
 miCiudad\modules\miCiudad\types\Nombre$Spec.class
 miCiudad\modules\miCiudad\dom\obra\EnumEstado.class
 miCiudad\modules\miCiudad\types\TypesObra\PresupuestoObra.class
+miCiudad\modules\miCiudad\dom\reporte\ReporteObras.class
 miCiudad\modules\miCiudad\dom\obra\Obras.class
 miCiudad\modules\miCiudad\types\EmailAddress.class
 miCiudad\modules\miCiudad\dom\empresa\Empresa.class

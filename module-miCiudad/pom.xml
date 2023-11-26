@@ -57,6 +57,13 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- Reportes -->
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>6.17.0</version> <!-- Asegúrate de usar la versión correspondiente -->
+        </dependency>
+
     </dependencies>
 
 </project>
