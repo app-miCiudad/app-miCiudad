@@ -9,6 +9,7 @@ miCiudad\modules\miCiudad\dom\reporte\Reportes.class
 miCiudad\modules\miCiudad\types\TypesUsuario\NombreUsuario.class
 miCiudad\modules\miCiudad\types\TypesContactoPrivado\CargoContactoPrivado$Spec.class
 miCiudad\modules\miCiudad\fixture\Barrio_persona.class
+miCiudad\modules\miCiudad\types\TypesUsuario\TokenUsuario.class
 miCiudad\modules\miCiudad\types\TypesObra\TyEstadoObra.class
 miCiudad\modules\miCiudad\fixture\BarrioBuilder.class
 miCiudad\modules\miCiudad\types\Nombre.class

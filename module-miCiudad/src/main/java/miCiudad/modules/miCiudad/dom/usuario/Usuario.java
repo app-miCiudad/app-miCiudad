@@ -18,6 +18,7 @@ import miCiudad.modules.miCiudad.types.Nombre;
 import miCiudad.modules.miCiudad.types.TypesEmpresa.NombreEmpresa;
 import miCiudad.modules.miCiudad.types.TypesUsuario.ContraseñaUsuario;
 import miCiudad.modules.miCiudad.types.TypesUsuario.NombreUsuario;
+import miCiudad.modules.miCiudad.types.TypesUsuario.TokenUsuario;
 
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
@@ -36,6 +37,8 @@ import miCiudad.modules.miCiudad.types.TypesUsuario.ContraseñaUsuario;
 
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -99,6 +102,13 @@ public class Usuario {
     @PropertyLayout(fieldSetId = "name", sequence = "2")
     private String contraseña;
 
+    @TokenUsuario
+    @Column(name = "token", length = Nombre.MAX_LEN, nullable = true)
+    @Getter @Setter
+    @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
+    @PropertyLayout(fieldSetId = "name", sequence = "3")
+    private String token;
+
 
 
     ////////////////////////////////
@@ -120,6 +130,11 @@ public class Usuario {
         val simpleObject = new Usuario();
         simpleObject.setNombre(nombre);
         simpleObject.setContraseña(contraseña);
+
+        String tokenAux = tokenGen(30);
+
+        simpleObject.setToken(tokenAux);
+
         return simpleObject;
     }
     ////////////////////////
@@ -165,5 +180,29 @@ public class Usuario {
 
   
     ////////////////////////////////
+
+
+
+    ////// Genera un Token aleatoreo //////
+
+    public static int numeroAleatorioEnRango(int minimo, int maximo) {
+    // nextInt regresa en rango pero con límite superior exclusivo, por eso sumamos 1
+    return ThreadLocalRandom.current().nextInt(minimo, maximo + 1);
+}
+
+    public static String tokenGen (int longitud) {
+        // El banco de caracteres
+        String banco = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        // La cadena en donde iremos agregando un carácter aleatorio
+        String cadena = "";
+        for (int x = 0; x < longitud; x++) {
+            int indiceAleatorio = numeroAleatorioEnRango(0, banco.length() - 1);
+            char caracterAleatorio = banco.charAt(indiceAleatorio);
+            cadena += caracterAleatorio;
+        }
+        return cadena;
+    }
+
+    /////////////////////////////////////////
     
 }

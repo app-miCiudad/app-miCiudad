@@ -1,6 +1,7 @@
 package miCiudad.modules.miCiudad.dom.barrio;
 
 import lombok.RequiredArgsConstructor;
+import miCiudad.modules.miCiudad.dom.empresa.Empresa;
 import miCiudad.modules.miCiudad.dom.obra.EnumEstado;
 import miCiudad.modules.miCiudad.dom.obra.Obra;
 import miCiudad.modules.miCiudad.types.*;

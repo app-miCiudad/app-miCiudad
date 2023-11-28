@@ -9,5 +9,8 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
     //// Buscador ///
     Usuario findByNombre(final String name);
+
+
+
     
 }

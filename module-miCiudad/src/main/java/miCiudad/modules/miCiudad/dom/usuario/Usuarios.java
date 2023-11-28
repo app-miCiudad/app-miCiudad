@@ -62,11 +62,38 @@ public class Usuarios {
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
     public Usuario findByNombre(
-            @NombreEmpresa final String nombre
+            @NombreUsuario final String nombre
             ) {
         return usuarioRepository.findByNombre(nombre);
     }
     //////////////////
+    
+
+    ///// Te busca el Token segun el usuario y contraseña ///////////
+    @Action(semantics = SemanticsOf.SAFE)
+    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
+    public String tokenResultado(
+            @NombreUsuario final String nombre,
+            @ContraseñaUsuario final String contraseña
+            ) {
+                String tokenAux= "No se encuentra el Usuario";
+                Usuario usuarios = findByNombre(nombre);
+                //boolean vacio;
+
+                if ( usuarios != null){
+
+                    if (usuarios.getContraseña().equals(contraseña)){
+                        tokenAux = usuarios.getToken();
+                    }else{
+                        tokenAux = "La Contraseña es Incorrecta";
+                    }
+                }
+
+                return tokenAux;
+            }
+    //////////////////
+
+
     
     
 }
