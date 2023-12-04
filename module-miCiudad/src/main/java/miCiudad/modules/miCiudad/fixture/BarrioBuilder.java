@@ -15,13 +15,14 @@ public class BarrioBuilder extends BuilderScriptWithResult<Barrio> {
 
     @Getter @Setter
     private String name;
+    private String habitante;
 
     @Override
     protected Barrio buildResult(final ExecutionContext ec) {
 
         checkParam("name", ec, String.class);
 
-        return wrap(barrios).create(name);
+        return wrap(barrios).create(name,habitante);
     }
 
     // -- DEPENDENCIES

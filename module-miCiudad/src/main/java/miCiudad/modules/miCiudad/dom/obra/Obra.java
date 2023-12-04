@@ -20,9 +20,11 @@ import miCiudad.modules.miCiudad.dom.empresa.Empresa;
 import miCiudad.modules.miCiudad.dom.empresa.EmpresaRepository;
 import miCiudad.modules.miCiudad.types.*;
 import miCiudad.modules.miCiudad.types.TypesEmpresa.NombreEmpresa;
+import miCiudad.modules.miCiudad.types.TypesObra.EspecificacionObra;
 import miCiudad.modules.miCiudad.types.TypesObra.FechaObra;
-import miCiudad.modules.miCiudad.types.TypesObra.IdEmpresa;
+import miCiudad.modules.miCiudad.types.TypesObra.FotoObra;
 import miCiudad.modules.miCiudad.types.TypesObra.LatitudObra;
+import miCiudad.modules.miCiudad.types.TypesObra.PorcentajeAvanceObra;
 import miCiudad.modules.miCiudad.types.TypesObra.PresupuestoObra;
 import miCiudad.modules.miCiudad.types.TypesObra.TipoObra;
 import miCiudad.modules.miCiudad.types.TypesObra.TituloObra;
@@ -40,7 +42,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.joda.time.DateTime;
 
 
 @Entity
@@ -93,8 +94,8 @@ public class Obra implements Comparable<Obra> {
     @PropertyLayout(fieldSetId = "name", sequence = "3")
     private String titulo;
 
-    @Especificacion
-    @Column(name ="especificacion", length = Especificacion.MAX_LEN, nullable = false)
+    @EspecificacionObra
+    @Column(name ="especificacion", length = EspecificacionObra.MAX_LEN, nullable = false)
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @PropertyLayout(fieldSetId = "name", sequence = "4")
@@ -143,17 +144,32 @@ public class Obra implements Comparable<Obra> {
     private String tipo;
 
     @TyEstadoObra
-    @Column(name ="TyEstadoObra", length = TyEstadoObra.MAX_LEN, nullable = false)
+    @Column(name ="estado", length = TyEstadoObra.MAX_LEN, nullable = false)
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @PropertyLayout(fieldSetId = "name", sequence = "11")
     private String estado;
+
+    @FotoObra
+    @Column(name ="foto", length = FotoObra.MAX_LEN, nullable=true)
+    @Getter @Setter
+    @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
+    @PropertyLayout(fieldSetId = "name", sequence = "12")
+    private String foto;
+
+    @PorcentajeAvanceObra
+    @Column(name ="porcentajeAvance", length = PorcentajeAvanceObra.MAX_LEN, nullable=true)
+    @Getter @Setter
+    @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
+    @PropertyLayout(fieldSetId = "name", sequence = "13")
+    private String porcentajeAvance;
     ///////////////////////////////
 
     public static final String NAMESPACE = "miCiudad";
     //////////// Constructor ////////////
     public Obra(Barrio barrio, String titulo, String esp, String fechaInicio, String fechaFinal,
-    String presupuesto, String latitud, String longitud, String tipo, String estado) {
+    String presupuesto, String latitud, String longitud, String tipo, String estado, String foto,
+    String porcentajeAvance) {
         this.barrio = barrio;
         this.titulo = titulo;
         this.especificacion = esp;
@@ -164,6 +180,8 @@ public class Obra implements Comparable<Obra> {
         this.longitud = longitud;
         this.tipo = tipo;
         this.estado = estado;
+        this.foto = foto;
+        this.porcentajeAvance = porcentajeAvance;
         
     }
     /////////////////////////////////////
@@ -191,7 +209,6 @@ public class Obra implements Comparable<Obra> {
         
         Empresa em = empresaRepository.findByNombre(nombre);
         setEmpresa(em);
-        //this.idEmpresa = empresa.getId().toString();
         return this;
     }
     //////////////////////////////

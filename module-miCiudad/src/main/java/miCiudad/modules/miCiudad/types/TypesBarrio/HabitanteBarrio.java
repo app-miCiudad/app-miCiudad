@@ -1,5 +1,4 @@
-package miCiudad.modules.miCiudad.types;
-
+package miCiudad.modules.miCiudad.types.TypesBarrio;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -12,14 +11,13 @@ import org.apache.isis.applib.annotation.Property;
 import org.apache.isis.applib.annotation.PropertyLayout;
 import org.apache.isis.applib.annotation.Where;
 
-@Property(editing = Editing.ENABLED, maxLength = Especificacion.MAX_LEN)
-@PropertyLayout(named = "Especificacion", multiLine = 10, hidden = Where.ALL_TABLES)
-@Parameter(maxLength = Especificacion.MAX_LEN)
-@ParameterLayout(named = "Especificacion", multiLine = 10)
+@Property(maxLength = HabitanteBarrio.MAX_LEN, editing = Editing.ENABLED)
+@Parameter(maxLength = HabitanteBarrio.MAX_LEN)
+@ParameterLayout(named = "Habitantes")
+@PropertyLayout(named = "Habitantes", multiLine = 1, hidden = Where.ALL_TABLES)
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Especificacion {
 
-    int MAX_LEN = 4000;
-
+public @interface HabitanteBarrio {
+    int MAX_LEN = 40;
 }

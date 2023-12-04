@@ -21,6 +21,8 @@ import org.apache.isis.persistence.jpa.applib.services.JpaSupportService;
 import lombok.RequiredArgsConstructor;
 
 import miCiudad.modules.miCiudad.types.Nombre;
+import miCiudad.modules.miCiudad.types.TypesBarrio.HabitanteBarrio;
+import miCiudad.modules.miCiudad.types.TypesBarrio.NombreBarrio;
 
 @DomainService(
         nature = NatureOfService.VIEW,
@@ -37,8 +39,9 @@ public class Barrios {
     //// Crear Barrio ////
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
     public Barrio create(
-            @Nombre final String nombre) {
-        return repositoryService.persist(Barrio.withName(nombre));
+            @NombreBarrio final String nombre,
+            @HabitanteBarrio final String habitante) {
+        return repositoryService.persist(Barrio.withName(nombre,habitante));
     }
     //////////////////
 

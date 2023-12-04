@@ -13,14 +13,14 @@ import org.apache.isis.applib.annotation.Property;
 import org.apache.isis.applib.annotation.PropertyLayout;
 import org.apache.isis.applib.annotation.Where;
 
-
-
-
-@PropertyLayout(named = "idEmpresa", multiLine = 10, hidden = Where.EVERYWHERE)
-@Parameter(maxLength = IdEmpresa.MAX_LEN, optionality = Optionality.OPTIONAL)
+@Property(editing = Editing.ENABLED, maxLength = PorcentajeAvanceObra.MAX_LEN, optionality = Optionality.OPTIONAL)
+@PropertyLayout(named = "Porcentaje Avance", hidden = Where.ALL_TABLES)
+@Parameter(maxLength = PorcentajeAvanceObra.MAX_LEN, optionality = Optionality.OPTIONAL)
+@ParameterLayout(named = "Porcentaje Avance")
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface IdEmpresa {
+public @interface PorcentajeAvanceObra {
+
     int MAX_LEN = 4000;
-    
+
 }

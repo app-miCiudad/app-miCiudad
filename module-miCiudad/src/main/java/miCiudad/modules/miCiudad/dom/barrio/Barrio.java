@@ -15,6 +15,9 @@ import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import miCiudad.modules.miCiudad.types.*;
+import miCiudad.modules.miCiudad.types.TypesBarrio.HabitanteBarrio;
+import miCiudad.modules.miCiudad.types.TypesBarrio.NombreBarrio;
+
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
 import org.apache.isis.applib.annotation.DomainObject;
@@ -77,21 +80,32 @@ public class Barrio implements Comparable<Barrio> {
     @PropertyLayout(fieldSetId = "metadata", sequence = "1")
     private Long id;
 
-    @Nombre
-    @Column(length = Nombre.MAX_LEN, nullable = false, name = "nombre")
-    @Getter @Setter @ToString.Include
-    @Property(hidden = Where.EVERYWHERE)
+    @NombreBarrio
+    @Column(length = NombreBarrio.MAX_LEN, nullable = false, name = "nombre")
+    @Getter @Setter
+    @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
+    @PropertyLayout(fieldSetId = "name", sequence = "1")
     private String nombre;
+
+
+    @HabitanteBarrio
+    @Column(length = HabitanteBarrio.MAX_LEN, nullable = false, name = "habitante")
+    @Getter @Setter
+    @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
+    @PropertyLayout(fieldSetId = "name", sequence = "2")
+    private String habitante;
     ///////////////////////////////
 
-
+    /* 
     public static Barrio withName(String name) {
         return withName(name, null);
     }
+    */
 
-    public static Barrio withName(String nombre, String firstName) {
+    public static Barrio withName(String nombre, String habitante) {
         val simpleObject = new Barrio();
         simpleObject.setNombre(nombre);
+        simpleObject.setHabitante(habitante);
         return simpleObject;
     }
 
@@ -109,7 +123,7 @@ public class Barrio implements Comparable<Barrio> {
     @Inject @Transient MessageService messageService;
 
 
-
+/* 
     @Transient
     @PropertyLayout(fieldSetId = "name", sequence = "1", named = "Nombre Barrio")
     public String getName() {
@@ -131,18 +145,22 @@ public class Barrio implements Comparable<Barrio> {
     public String default0UpdateName() {
         return getNombre();
     }
+*/
 
-
-    /// Eliminar datos ///
+    ///// Eliminar ////
     @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
     @ActionLayout(
-            associateWith = "name", position = ActionLayout.Position.PANEL,
+            position = ActionLayout.Position.PANEL,
             describedAs = "Deletes this object from the persistent datastore")
     public void delete() {
         final String title = titleService.titleOf(this);
         messageService.informUser(String.format("'%s' deleted", title));
         repositoryService.removeAndFlush(this);
     }
-    //////////////////////////////////////
+
+    ////////////////////////////////
+
+
+    
 
 }
