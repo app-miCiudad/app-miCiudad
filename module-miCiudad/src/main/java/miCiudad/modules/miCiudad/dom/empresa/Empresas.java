@@ -8,18 +8,13 @@ import org.apache.isis.applib.annotation.BookmarkPolicy;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.SemanticsOf;
-import org.apache.isis.applib.query.Query;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import lombok.RequiredArgsConstructor;
-import miCiudad.modules.miCiudad.dom.barrio.Barrio;
-import miCiudad.modules.miCiudad.types.Nombre;
 import miCiudad.modules.miCiudad.types.TypesEmpresa.NombreEmpresa;
 import javax.inject.Inject;
-import javax.persistence.TypedQuery;
 
 import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.applib.annotation.PriorityPrecedence;
-import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.persistence.jpa.applib.services.JpaSupportService;
 
 

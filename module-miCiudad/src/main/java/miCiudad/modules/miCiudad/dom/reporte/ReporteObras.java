@@ -1,10 +1,9 @@
 package miCiudad.modules.miCiudad.dom.reporte;
 
-import org.joda.time.DateTime;
+
 
 import lombok.Getter;
 import lombok.Setter;
-import miCiudad.modules.miCiudad.dom.empresa.Empresa;
 
 public class ReporteObras {
 
@@ -17,7 +16,7 @@ public class ReporteObras {
     @Getter @Setter
     private String presupuesto;
 
-    @Getter @Setter
+    @Setter
     private String nombreEmpresa;
     
     @Getter @Setter

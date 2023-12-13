@@ -2,7 +2,6 @@ package miCiudad.modules.miCiudad.dom.barrio;
 
 import lombok.RequiredArgsConstructor;
 import miCiudad.modules.miCiudad.dom.obra.Obra;
-import miCiudad.modules.miCiudad.types.*;
 import miCiudad.modules.miCiudad.types.TypesObra.EspecificacionObra;
 import miCiudad.modules.miCiudad.types.TypesObra.FechaObra;
 import miCiudad.modules.miCiudad.types.TypesObra.FotoObra;

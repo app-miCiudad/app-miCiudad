@@ -13,9 +13,8 @@ import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import miCiudad.modules.miCiudad.dom.empresa.Empresa;
+
 import miCiudad.modules.miCiudad.types.Nombre;
-import miCiudad.modules.miCiudad.types.TypesEmpresa.NombreEmpresa;
 import miCiudad.modules.miCiudad.types.TypesUsuario.ContraseñaUsuario;
 import miCiudad.modules.miCiudad.types.TypesUsuario.NombreUsuario;
 import miCiudad.modules.miCiudad.types.TypesUsuario.TokenUsuario;
@@ -27,15 +26,11 @@ import org.apache.isis.applib.annotation.DomainObjectLayout;
 import org.apache.isis.applib.annotation.Property;
 import org.apache.isis.applib.annotation.PropertyLayout;
 import org.apache.isis.applib.annotation.Publishing;
-import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.jaxb.PersistentEntityAdapter;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 import org.apache.isis.persistence.jpa.applib.integration.IsisEntityListener;
-import miCiudad.modules.miCiudad.types.TypesUsuario.ContraseñaUsuario;
-
-import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
 
 import java.util.concurrent.ThreadLocalRandom;

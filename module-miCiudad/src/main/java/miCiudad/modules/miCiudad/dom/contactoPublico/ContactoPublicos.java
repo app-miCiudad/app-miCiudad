@@ -1,4 +1,5 @@
-package miCiudad.modules.miCiudad.dom.obra;
+package miCiudad.modules.miCiudad.dom.contactoPublico;
+
 import java.util.List;
 
 import javax.annotation.Priority;
@@ -19,22 +20,21 @@ import org.apache.isis.applib.annotation.SemanticsOf;
 
 @DomainService(
         nature = NatureOfService.VIEW,
-        logicalTypeName = "miCiudad.Obras"
+        logicalTypeName = "miCiudad.ContactoPublicos"
 )
 @Priority(PriorityPrecedence.EARLY)
 @RequiredArgsConstructor(onConstructor_ = {@Inject} )
-public class Obras {
 
+public class ContactoPublicos {
     final RepositoryService repositoryService;
-    final ObraRepository obraRepository;
+    final ContactoPublicoRepository contactoPublicoRepository;
     
     
     ///// Listar todos los datos //////
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-    public List<Obra> listAll() {
-        return obraRepository.findAll();
+    public List<ContactoPublico> listAll() {
+        return contactoPublicoRepository.findAll();
     }
     ////////////////////////////////
-
 }

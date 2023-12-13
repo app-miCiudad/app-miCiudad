@@ -1,16 +1,13 @@
 package miCiudad.modules.miCiudad.types.TypesObra;
 
 import org.apache.isis.applib.annotation.Editing;
-import org.apache.isis.applib.annotation.Optionality;
 import org.apache.isis.applib.annotation.Parameter;
 import org.apache.isis.applib.annotation.Property;
-import org.apache.isis.applib.annotation.Where;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-//hidden = Where.EVERYWHERE
 
 @Property(editing = Editing.ENABLED,maxLength = LatitudObra.MAX_LEN)
 @Parameter(maxLength = LatitudObra.MAX_LEN)
