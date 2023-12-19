@@ -16,5 +16,5 @@ import org.apache.isis.applib.annotation.Property;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface TituloObra {
 
-    int MAX_LEN = 200;
+    int MAX_LEN = 20000;
 }

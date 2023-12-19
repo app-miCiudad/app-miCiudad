@@ -88,7 +88,7 @@ public class Obra implements Comparable<Obra> {
 
 
     @TituloObra
-    @Column(name = "titulo", length = Nombre.MAX_LEN, nullable = false)
+    @Column(name = "titulo", length = TituloObra.MAX_LEN, nullable = false)
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @PropertyLayout(fieldSetId = "name", sequence = "3")
